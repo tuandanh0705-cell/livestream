@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>META ECOM | Dịch Vụ Livestream Sản Xuất Chuyên Nghiệp Trọn Gói</title>
+  <meta name="description" content="META ECOM cung cấp giải pháp sản xuất Livestream TikTok Shop, Shopee Live chuyên nghiệp trọn gói. Hệ thống máy quay 4K, Studio hiện đại & đội ngũ vận hành 500+ phiên live thành công.">
+  <meta name="keywords" content="dịch vụ livestream, livestream tiktok shop, shopee live, sản xuất livestream chuyên nghiệp, setup studio livestream, META ECOM">
+  
+  <!-- Open Graph / Social Media Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="META ECOM | Dịch Vụ Livestream Sản Xuất Chuyên Nghiệp">
+  <meta property="og:description" content="Giải pháp vận hành Livestream E-commerce toàn diện. Đặt lịch tư vấn chiến lược 30' miễn phí!">
+  <meta property="og:image" content="images/studio_setup.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- FLOATING CSKH WIDGET --- */
+    .floating-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .float-phone {
+      background: #22c55e;
+      animation: pulse-green 2s infinite;
+    }
+
+    .float-zalo {
+      background: #0068ff;
+      animation: pulse-blue 2s infinite 0.5s;
+    }
+
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    @keyframes pulse-blue {
+      0% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(0, 104, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0); }
+    }
+    :root {
+      /* Palette (Lemon Digital / Dark Space style) */
+      --c-bg: #0a0a0a;
+      --c-accent: #f5b015; 
+      --c-accent-hover: #e09e0d;
+      --c-text-main: #ffffff;
+      --c-text-muted: #a1a1aa; /* Zinc 400 */
+      --c-border: rgba(255, 255, 255, 0.1);
+      --c-glass: rgba(15, 15, 15, 0.6);
+      
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--c-bg);
+      color: var(--c-text-main);
+      overflow-x: hidden;
+      /* Background Glow */
+      background-image: 
+        radial-gradient(circle at 50% -20%, rgba(245, 176, 21, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 50%, rgba(245, 176, 21, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.02) 0%, transparent 30%);
+      background-attachment: fixed;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- TOP NAV --- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--c-accent);
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a {
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--c-accent);
+    }
+
+    .nav-btn {
+      background: var(--c-accent);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--c-accent-hover);
+      transform: translateY(-2px);
+    }
+
+    /* --- CONTAINERS & SECTIONS --- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--c-accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 130px; /* Offset nav */
+      padding-bottom: 24px;
+    }
+
+    .hero-container {
+      border: 1px solid var(--c-border);
+      border-radius: 40px;
+      padding: 80px 40px;
+      text-align: center;
+      max-width: 1000px;
+      width: 100%;
+      background: var(--c-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: var(--c-text-muted);
+    }
+
+    .hero-h1-top {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      margin-bottom: 0;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-h1-bottom {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 110px); /* Slightly smaller to fit better */
+      font-weight: 900;
+      line-height: 1.15; /* Increased from 1 to 1.15 to prevent diacritics clashing */
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+      text-shadow: 0 10px 40px rgba(245, 176, 21, 0.3);
+    }
+
+    .hero-lede {
+      font-size: 18px;
+      color: var(--c-text-muted);
+      max-width: 820px;
+      margin: 0 auto 40px;
+      font-weight: 500;
+      text-wrap: balance;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn-pill {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+
+    .btn-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-pill-primary {
+      background: var(--c-accent);
+      color: #000;
+      box-shadow: 0 10px 20px rgba(245, 176, 21, 0.2);
+    }
+
+    .btn-pill-secondary {
+      background: #111;
+      color: #fff;
+      border: 1px solid var(--c-border);
+    }
+    
+    .btn-pill-secondary:hover {
+      background: #222;
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .partner-logos {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+      opacity: 0.5;
+    }
+
+    .partner-logos div {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: lowercase;
+    }
+
+    /* --- BENTO GRID (PAIN POINTS) --- */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .bento-card {
+      background: var(--c-glass);
+      border: 1px solid var(--c-border);
+      border-radius: 24px;
+      padding: 40px;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .bento-card:hover {
+      border-color: rgba(245, 176, 21, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .bento-card h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .bento-card p {
+      color: var(--c-text-muted);
+      font-size: 16px;
+    }
+    
+    .bento-large {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(245, 176, 21, 0.1) 0%, var(--c-glass) 100%);
+      border-color: rgba(245, 176, 21, 0.3);
+    }
+
+    /* --- SERVICES ROW --- */
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .service-row {
+      background: var(--c-glass);
+      border: 1px solid var(--c-border);
+      border-radius: 24px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 80px 1fr 1.5fr;
+      align-items: center;
+      gap: 32px;
+      transition: all 0.3s;
+    }
+
+    .service-row:hover {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .srv-num {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--c-accent);
+    }
+
+    .srv-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .srv-desc {
+      color: var(--c-text-muted);
+      font-size: 16px;
+    }
+
+    /* --- PRICING --- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .price-card {
+      background: var(--c-glass);
+      border: 1px solid var(--c-border);
+      border-radius: 32px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .price-card.recommended {
+      border-color: var(--c-accent);
+      background: linear-gradient(180deg, rgba(245, 176, 21, 0.05) 0%, rgba(15,15,15,0.6) 100%);
+    }
+
+    .rec-badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--c-accent);
+      color: #000;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      letter-spacing: 1px;
+    }
+
+    .price-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .price-sub {
+      color: var(--c-text-muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    .price-val {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: var(--c-accent);
+    }
+
+    .price-val span {
+      font-size: 16px;
+      color: var(--c-text-muted);
+      font-weight: 500;
+    }
+
+    .feature-list {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 40px;
+    }
+
+    .feature-list li {
+      padding: 12px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.1);
+      font-size: 15px;
+      color: var(--c-text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .feature-list li b {
+      color: #fff;
+    }
+
+    .check-icon {
+      color: var(--c-accent);
+      font-weight: bold;
+    }
+
+    .btn-full {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* --- CONTACT FORM --- */
+    .contact-box {
+      background: var(--c-glass);
+      border: 1px solid var(--c-border);
+      border-radius: 40px;
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 16px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--c-accent);
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      padding: 60px 24px;
+      text-align: center;
+      border-top: 1px solid var(--c-border);
+      margin-top: 60px;
+      font-size: 14px;
+      color: var(--c-text-muted);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 992px) {
+      .hero-h1-bottom { font-size: 8vw; }
+      .bento-grid, .service-row, .pricing-grid, .contact-box { grid-template-columns: 1fr; }
+      .bento-large { grid-column: 1; }
+      .service-row { gap: 16px; padding: 24px; }
+      .srv-num { font-size: 20px; }
+      .srv-title { font-size: 22px; }
+      .nav-links { display: none; }
+      .contact-box { padding: 32px; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      META ECOM
+    </div>
+    <ul class="nav-links">
+      <li><a href="#ve-chung-toi">Về Chúng Tôi</a></li>
+      <li><a href="#dich-vu">Dịch Vụ</a></li>
+      <li><a href="#bang-gia">Bảng Giá</a></li>
+      <li><a href="#thiet-bi">Thiết Bị</a></li>
+    </ul>
+    <a href="#lien-he" class="nav-btn">Nhận Tư Vấn Miễn Phí</a>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="hero container">
+    <div class="hero-container">
+      <div class="hero-eyebrow">META ECOM</div>
+      
+      <h1 class="hero-h1-top">SẢN XUẤT LIVESTREAM</h1>
+      <h1 class="hero-h1-bottom">CHUYÊN NGHIỆP</h1>
+      
+      <p class="hero-lede">Dịch vụ sản xuất Livestream bán hàng trọn gói tại Studio 4K <strong>META ECOM</strong>. Chuyên thiết lập máy quay điện ảnh, vận hành EKIP kỹ thuật đa góc máy và tối ưu chuyển đổi trên <span style="white-space: nowrap;"><strong>TikTok Shop</strong></span>, <span style="white-space: nowrap;"><strong>Shopee Live</strong></span>, <strong>Facebook</strong>.</p>
+      
+      <div class="hero-buttons">
+        <a href="#lien-he" class="btn-pill btn-pill-primary">📞 Đăng lịch 30' chiến lược Live</a>
+        <a href="#bang-gia" class="btn-pill btn-pill-secondary">Tư vấn báo giá</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- INTRO LEAD-IN & ANH 1 SECTION -->
+  <section class="container" style="padding-top: 16px; padding-bottom: 20px;">
+    <div style="width: 100%; text-align: justify; font-size: 17px; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 20px;">
+      Trong kỷ nguyên thương mại điện tử (E-commerce), <strong>dịch vụ sản xuất Livestream bán hàng trọn gói</strong> là chiến lược ưu tiên hàng đầu giúp các doanh nghiệp bứt phá doanh số. Việc đầu tư vào một giải pháp Livestream chuyên nghiệp, chuẩn hình ảnh 4K chính là “chìa khóa vàng” để nhãn hàng tạo nên các phiên <strong>Mega Live bùng nổ đơn hàng</strong> trên <span style="white-space: nowrap;">TikTok Shop</span>, <span style="white-space: nowrap;">Shopee Live</span> và Facebook. Hãy cùng <strong>META ECOM</strong> khám phá giải pháp tối ưu cho thương hiệu của bạn ngay dưới đây!
+    </div>
+
+    <!-- ẢNH 1.PNG THỰC TẾ CHÈN NGAY DƯỚI NỘI DUNG NÀY -->
+    <div style="width: 100%;">
+      <div style="width: 100%; border-radius: 24px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 25px 60px rgba(0,0,0,0.7); position: relative;">
+        <img src="images/anh1.png" alt="Không gian Studio Livestream META ECOM" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+      <p style="text-align: center; color: var(--c-text-muted); font-size: 14px; margin-top: 16px; font-style: italic;">Hệ thống trang thiết bị và không gian Studio Livestream thực tế tại META ECOM.</p>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION SECTION -->
+  <section class="section container" id="gioi-thieu" style="padding-top: 24px;">
+    <div style="width: 100%; margin-bottom: 48px; text-align: left;">
+      <h2 style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); color: var(--c-accent); margin-bottom: 24px; font-weight: 700;">Dịch Vụ Livestream Chuyên Nghiệp Tại META ECOM</h2>
+      <p style="color: var(--c-text-muted); font-size: 17px; margin-bottom: 16px; line-height: 1.8;">Trong thời đại số, <strong>dịch vụ livestream</strong> đã trở thành công cụ không thể thiếu đối với doanh nghiệp, thương hiệu và cá nhân. Không chỉ là phương tiện truyền tải thông tin tức thời, livestream còn giúp tăng cường sự kết nối với khán giả, mở rộng tệp khách hàng và nâng cao hiệu quả bán hàng trực tiếp.</p>
+      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8;">META ECOM tự hào là đơn vị cung cấp <strong>dịch vụ sản xuất livestream chuyên nghiệp</strong>, đáp ứng đa dạng nhu cầu từ livestream bán hàng TikTok Shop, Shopee Live cho đến setup phòng studio trọn gói. Với kinh nghiệm hàng trăm phiên live, đội ngũ kỹ thuật viên chuyên môn cao và hệ thống thiết bị điện ảnh, chúng tôi mang đến giải pháp livestream trọn gói, chất lượng cao và tối ưu chi phí nhất.</p>
+    </div>
+    
+    <div style="width: 100%;">
+      <div style="width: 100%; height: 520px; border-radius: 24px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 25px 60px rgba(0,0,0,0.7); position: relative;">
+        <img src="images/studio_setup.png" alt="Studio Livestream Chuyên Nghiệp META ECOM" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+      <p style="text-align: center; color: var(--c-text-muted); font-size: 14px; margin-top: 16px; font-style: italic;">Studio META ECOM vận hành hệ thống máy quay 4K & bàn trộn tín hiệu chuyên nghiệp trong phiên live.</p>
+    </div>
+  </section>
+
+
+
+  <!-- SERVICES (DETAILED SPEC SHEET) -->
+  <section class="section container" id="dich-vu">
+    <div style="margin-bottom: 48px; text-align: left;">
+      <h2 style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); color: var(--c-accent); font-weight: 700; margin-bottom: 16px;">Dịch vụ sản xuất Livestream</h2>
+      <p style="color: var(--c-text-muted); font-size: 17px; max-width: 900px; line-height: 1.6;">Cung cấp không gian studio và host live kinh nghiệm phù hợp với những doanh nghiệp muốn tổ chức các buổi livestream tăng tương tác với khách hàng, nâng cao hình ảnh thương hiệu và tối ưu kết quả kinh doanh.</p>
+    </div>
+
+    <div style="background: rgba(15, 15, 15, 0.6); border: 1px solid var(--c-border); border-radius: 24px; overflow: hidden; backdrop-filter: blur(12px); overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 800px;">
+        <thead>
+          <tr style="border-bottom: 1px solid var(--c-border); background: rgba(0,0,0,0.5);">
+            <th style="padding: 24px; color: #fff; font-weight: 700; width: 20%; font-family: var(--font-display);">Hạng mục</th>
+            <th style="padding: 24px; color: #fff; font-weight: 700; width: 40%; border-left: 1px solid var(--c-border); font-family: var(--font-display);">Gói Livestream Điện Thoại</th>
+            <th style="padding: 24px; color: var(--c-accent); font-weight: 800; width: 40%; border-left: 1px solid var(--c-border); font-family: var(--font-display);">Gói Livestream Máy Quay Pro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 24px; color: #fff; font-weight: 600; border-bottom: 1px solid var(--c-border);">Tư vấn</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">Tư vấn concept và kịch bản livestream chuyên nghiệp</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">Tư vấn concept và kịch bản livestream chuyên nghiệp</td>
+          </tr>
+          <tr>
+            <td style="padding: 24px; color: #fff; font-weight: 600; border-bottom: 1px solid var(--c-border);">Kế hoạch & Báo cáo</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">Kế hoạch, lịch livestream & báo cáo định kỳ</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">Kế hoạch, lịch livestream & báo cáo định kỳ</td>
+          </tr>
+          <tr>
+            <td style="padding: 24px; color: #fff; font-weight: 600; border-bottom: 1px solid var(--c-border);">Cung cấp studio & thiết bị</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">
+              Cung cấp studio livestream chuyên nghiệp (&lt;20m2)<br><br>
+              <strong style="color: #fff;">Cung cấp thiết bị livestream điện thoại chuyên nghiệp:</strong> 01 điện thoại smartphone, 01 đèn ringlight
+            </td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">
+              Cung cấp studio livestream chuyên nghiệp (&lt;20m2)<br><br>
+              <strong style="color: #fff;">Cung cấp thiết bị livestream PC chuyên nghiệp:</strong> 01 máy quay Sony A7M3; 01 Gimbal DJI RSC 2; 02 mic thu âm Rode; máy tính
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 24px; color: #fff; font-weight: 600; border-bottom: 1px solid var(--c-border);">Kịch bản livestream</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">Xây dựng kịch bản livestream</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">Xây dựng kịch bản livestream chuyên nghiệp</td>
+          </tr>
+          <tr>
+            <td style="padding: 24px; color: #fff; font-weight: 600; border-bottom: 1px solid var(--c-border);">Cung cấp nhân sự sản xuất livestream</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">
+              Cung cấp nhân sự quản lý livestream<br><br>
+              <strong style="color: #fff;">Cung cấp nhân sự host live chuyên nghiệp (01 host/session)</strong>
+            </td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-bottom: 1px solid var(--c-border); border-left: 1px solid var(--c-border);">
+              Cung cấp nhân sự quản lý livestream; nhân sự kỹ thuật, trợ live, hỗ trợ trưng bày sản phẩm<br><br>
+              <strong style="color: #fff;">Cung cấp nhân sự host live chuyên nghiệp (01 host/session)</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 24px; color: #fff; font-weight: 600;">Hỗ trợ khác</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-left: 1px solid var(--c-border);">Hỗ trợ mở tính năng live PC, kháng cáo các vi phạm livestream</td>
+            <td style="padding: 24px; color: var(--c-text-muted); border-left: 1px solid var(--c-border);">Hỗ trợ mở tính năng live PC, kháng cáo các vi phạm livestream</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- QUY TRÌNH TRIỂN KHAI 5 BƯỚC (UI BLOG / ARTICLE B2B CHUẨN THỜI TRANG) -->
+  <section class="section container" id="quy-trinh">
+    <div style="width: 100%; margin-bottom: 40px; text-align: left;">
+      <h2 style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); color: var(--c-accent); font-weight: 700; margin-bottom: 16px;">Quy Trình Triển Khai Phiên Livestream Bán Hàng Chuyên Nghiệp</h2>
+      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8; text-align: justify;">
+        Có thể bạn chưa biết, sự khác biệt lớn nhất giữa một phiên livestream tự phát và một chiến dịch được dựng xây chuyên nghiệp như <strong>dịch vụ livestream bán hàng META ECOM</strong> nằm ở quy trình triển khai, kiểm soát rủi ro, tối ưu hóa ngân sách cùng một EKIP có năng lực thực thi nghiêm túc.
+      </p>
+      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8; margin-top: 16px; text-align: justify;">
+        Tại <strong>META ECOM</strong>, chúng tôi áp dụng quy trình chuẩn hóa với 5 bước nghiêm ngặt, đảm bảo thời gian của doanh nghiệp đầu tư cho phiên live thành giá trị thương hiệu uy tín và chuyển đổi thực tế, cụ thể như sau:
+      </p>
+    </div>
+
+    <!-- BƯỚC 1 -->
+    <div style="width: 100%; margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 20px;">1. TIẾP NHẬN VÀ TƯ VẤN</h3>
+      <div style="width: 100%; height: 420px; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
+        <img src="images/stage1.png" alt="Giai đoạn 1: Tiếp nhận & Tư vấn META ECOM" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify; margin-bottom: 12px;">
+        Ở giai đoạn đầu tiên, <strong>META ECOM</strong> sẽ tiếp nhận nhu cầu và ngồi lại với khách hàng để làm rõ mục tiêu chiến lược của dự án, phân tích sâu bài toán chuyển đổi kinh doanh cho từng ngành hàng cụ thể:
+      </p>
+      <ul style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; padding-left: 24px; text-align: justify;">
+        <li style="margin-bottom: 8px;"><strong>Phân tích ngành hàng:</strong> Sản phẩm của bạn dù là thời trang, mỹ phẩm, gia dụng hay công nghệ... META ECOM đều thiết kế hình ảnh cao cấp, tương thích hiển thị đa nền tảng.</li>
+        <li><strong>Định vị chân dung khách hàng:</strong> Xác định cụ thể tệp người xem live để lựa chọn <strong>"Khung giờ Vàng"</strong>, phong cách ngôn ngữ, nhịp độ và kịch bản chốt đơn phù hợp.</li>
+      </ul>
+    </div>
+
+    <!-- BƯỚC 2 -->
+    <div style="width: 100%; margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 20px;">2. KHẢO SÁT BỐI CẢNH VÀ LÊN KỊCH BẢN</h3>
+      <div style="width: 100%; height: 420px; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
+        <img src="images/stage2.png" alt="Giai đoạn 2: Khảo sát & Lên kịch bản" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify; margin-bottom: 12px;">
+        Tiếp đến, đội ngũ chuyên gia sẽ lên phương án không gian Studio phù hợp với bộ nhận diện thương hiệu, tạo cảm giác uy tín ngay từ cái nhìn đầu tiên.
+      </p>
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify;">
+        Việc tạo kịch bản điều hướng bán hàng rõ ràng giúp MC đi đúng trọng tâm chiến dịch, tạo các giai đoạn kích thích mua hàng qua <strong>Deal độc quyền, voucher đếm ngược và Mini Game</strong> trao quà hấp dẫn giữ chân người xem.
+      </p>
+    </div>
+
+    <!-- BƯỚC 3 -->
+    <div style="width: 100%; margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 20px;">3. SETUP VÀ TEST KỸ THUẬT CHUẨN TRUYỀN HÌNH</h3>
+      <div style="width: 100%; height: 420px; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
+        <img src="images/stage3.png" alt="Giai đoạn 3: Setup & Test kỹ thuật" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify; margin-bottom: 12px;">
+        Rủi ro lớn nhất của Livestream là mất mạng, mờ hình hay mất tiếng. Tại <strong>META ECOM</strong>, chúng tôi triệt tiêu 100% rủi ro này bằng quy trình kỹ thuật chuẩn đài truyền hình:
+      </p>
+      <ul style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; padding-left: 24px; text-align: justify;">
+        <li style="margin-bottom: 8px;"><strong>Hạ tầng mạng chuyên dụng:</strong> Sử dụng đường truyền mạng tốc độ cao (băng thông rộng dedicated) cam kết <strong>không giật lag, không sụt Bitrate</strong>.</li>
+        <li style="margin-bottom: 8px;"><strong>Hệ thống phần cứng 4K:</strong> Bố trí đa máy quay Sony 4K, hệ thống đèn studio chuẩn CRI 95+ và bàn trộn hình chuyển cảnh mượt mà.</li>
+        <li><strong>Tổng duyệt nghiêm ngặt:</strong> EKIP kỹ thuật âm thanh, ánh sáng, banner ghim đơn và MC thực hiện tổng duyệt test thiết bị trước khi bấm máy 1–2 tiếng.</li>
+      </ul>
+    </div>
+
+    <!-- BƯỚC 4 -->
+    <div style="width: 100%; margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 20px;">4. BẤM MÁY PHÁT SÓNG CHÍNH THỨC</h3>
+      <div style="width: 100%; height: 420px; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
+        <img src="images/stage4.png" alt="Giai đoạn 4: Bấm máy phát sóng chính thức" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify;">
+        Chính thức phát sóng phiên live đa nền tảng (TikTok Shop, Shopee Live, Facebook). Đội ngũ EKIP vận hành trọn gói 4 vai trò (Host live + Cameraman + Kỹ thuật bàn trộn + Trợ live ghim đơn) giữ nhịp phiên live luôn năng lượng và tăng trưởng tỷ lệ chốt đơn liên tục.
+      </p>
+    </div>
+
+    <!-- BƯỚC 5 -->
+    <div style="width: 100%; margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 20px;">5. NGHIỆM THU VÀ BÀN GIAO FILE LƯU TRỮ 4K (RE-USE ADS)</h3>
+      <div style="width: 100%; height: 420px; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
+        <img src="images/stage5.png" alt="Giai đoạn 5: Nghiệm thu & Bàn giao File 4K" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify;">
+        Sau khi kết thúc phiên live, META ECOM xuất báo cáo số liệu hiệu suất và <strong>bàn giao 100% File Video gốc 4K</strong> để thương hiệu tái sử dụng cắt dựng clip ngắn (Reels/TikTok/Shorts) chạy quảng cáo Video Ads, tối ưu ROI tối đa.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section container" id="bang-gia">
+    <div style="width: 100%; margin-bottom: 48px; text-align: left;">
+      <h2 style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--c-accent); margin-bottom: 16px;">Bảng giá dịch vụ sản xuất livestream</h2>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3 class="price-title" style="text-align: center; justify-content: center;">Gói Điện Thoại</h3>
+        <p class="price-sub" style="text-align: center;">Tối ưu chi phí để shop mới bắt đầu.</p>
+        <div class="price-val" style="text-align: center; justify-content: center;">105.000đ<span>/h</span></div>
+        
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> Studio livestream cách âm (&lt;20m²)</li>
+          <li><span class="check-icon">✓</span> 01 Smartphone chuyên dụng + Ringlight</li>
+          <li><span class="check-icon">✓</span> <b>01 Host Live + 01 Quản lý phiên</b></li>
+          <li><span class="check-icon">✓</span> Tư vấn concept & kịch bản livestream</li>
+          <li><span class="check-icon">✓</span> Kế hoạch, lịch live & báo cáo định kỳ</li>
+          <li><span class="check-icon">✓</span> Hỗ trợ mở Live PC & kháng vi phạm</li>
+        </ul>
+        
+        <a href="#lien-he" class="btn-pill btn-pill-secondary btn-full">Chọn gói này</a>
+      </div>
+
+      <div class="price-card recommended">
+        <div class="rec-badge">Khuyên Dùng</div>
+        <h3 class="price-title" style="text-align: center; justify-content: center;">Gói Máy Quay Pro</h3>
+        <p class="price-sub" style="text-align: center;">Chuẩn hình ảnh 4K sắc nét, bảo chứng thương hiệu.</p>
+        <div class="price-val" style="text-align: center; justify-content: center;">130.000đ<span>/h</span></div>
+        
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> Studio chuyên nghiệp + PC luồng mạnh</li>
+          <li><span class="check-icon">✓</span> <b>Sony A7M3 Full-frame + Gimbal DJI</b></li>
+          <li><span class="check-icon">✓</span> <b>3 Đèn Studio chuyên dụng + 2 Mic Rode</b></li>
+          <li><span class="check-icon">✓</span> <b>01 Host + 01 Kỹ thuật + 01 Trợ live</b></li>
+          <li><span class="check-icon">✓</span> Hỗ trợ trưng bày, decor sản phẩm</li>
+          <li><span class="check-icon">✓</span> Hỗ trợ kháng vi phạm cấp tốc</li>
+        </ul>
+        
+        <a href="#lien-he" class="btn-pill btn-pill-primary btn-full">Chọn gói Máy Quay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY (CÂU CHUYỆN THÀNH CÔNG) -->
+  <section class="section container" id="thanh-cong">
+    <style>
+      .cs-header { width: 100%; margin-bottom: 64px; text-align: left; }
+      .cs-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--c-accent); margin-bottom: 16px; }
+      .cs-subtitle { color: var(--c-text-muted); font-size: 16px; }
+      
+      .cs-slider-wrapper { position: relative; display: flex; align-items: center; justify-content: center; padding: 20px 60px; margin-top: 20px; overflow: hidden; }
+      
+      .cs-slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 40px; scrollbar-width: none; width: 100%; max-width: 1100px; margin: 0 auto; padding: 30px 0; scroll-behavior: smooth; }
+      .cs-slider-container::-webkit-scrollbar { display: none; }
+      
+      .cs-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 2px solid rgba(255,255,255,0.3); color: #fff; width: 48px; height: 48px; border-radius: 50%; font-size: 20px; cursor: pointer; transition: all 0.3s; z-index: 20; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
+      .cs-nav-btn:hover { border-color: var(--c-accent); color: var(--c-accent); background: #000; scale: 1.08; }
+      .cs-nav-prev { left: 10px; }
+      .cs-nav-next { right: 10px; }
+      
+      .cs-box { background: rgba(15,15,15,0.85); border: 1px solid rgba(255,255,255,0.15); border-radius: 36px; backdrop-filter: blur(12px); width: 100%; display: grid; grid-template-columns: 1.2fr 0.8fr; position: relative; flex: 0 0 100%; scroll-snap-align: start; box-sizing: border-box; }
+      
+      .cs-content { padding: 48px 40px; }
+      .cs-info { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 24px; line-height: 1.6; }
+      .cs-info span { color: var(--c-accent); }
+      .cs-quote-icon { color: var(--c-accent); font-size: 32px; font-weight: 900; line-height: 1; }
+      .cs-text { color: var(--c-text-muted); font-size: 15px; line-height: 1.8; margin: 16px 0; }
+      
+      .cs-visual { position: relative; display: flex; align-items: center; justify-content: center; padding: 24px; }
+      .cs-image-placeholder { position: relative; width: 100%; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.6); z-index: 1; transition: transform 0.4s ease; }
+      .cs-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+      .cs-image-placeholder:hover { transform: scale(1.02); }
+      
+      .cs-badge { background: rgba(20,20,20,0.9); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 16px 20px; text-align: center; backdrop-filter: blur(20px); box-shadow: 0 15px 35px rgba(0,0,0,0.8); position: absolute; z-index: 5; }
+      .cs-badge-top { top: 0px; right: 0px; }
+      .cs-badge-bottom { bottom: 0px; left: 0px; }
+      
+      .cs-badge-title { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 2px; }
+      .cs-badge-val { font-family: var(--font-display); font-size: 26px; font-weight: 900; color: var(--c-accent); line-height: 1; margin-bottom: 2px; white-space: nowrap; }
+      .cs-badge-desc { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; }
+
+      @media (max-width: 992px) {
+        .cs-box { grid-template-columns: 1fr; }
+        .cs-visual { height: 360px; padding: 16px; }
+        .cs-image-placeholder { width: 100%; height: 100%; position: relative; }
+        .cs-badge-top { top: 10px; right: 10px; }
+        .cs-badge-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+        .cs-slider-wrapper { padding: 10px 0; }
+        .cs-nav-btn { display: none; }
+      }
+    </style>
+    
+    <div class="cs-header">
+      <h2 class="cs-title">Câu chuyện thành công</h2>
+      <p class="cs-subtitle">Bứt phá doanh thu cùng xu hướng mua sắm kết hợp giải trí mới nhất.</p>
+    </div>
+
+    <div class="cs-slider-wrapper">
+      <button class="cs-nav-btn cs-nav-prev" onclick="const c = document.querySelector('.cs-slider-container'); c.scrollBy({left: -(c.offsetWidth + 40), behavior: 'smooth'})">❮</button>
+      
+      <div class="cs-slider-container">
+        <!-- Customer 1: Shondo -->
+        <div class="cs-box">
+          <div class="cs-content">
+            <div class="cs-info">
+              Khách hàng: <span>Shondo Vietnam</span><br>
+              Ngành hàng: <span>Thời trang</span>
+            </div>
+            
+            <div class="cs-quote-icon">“</div>
+            <p class="cs-text">META ECOM rất có tài trong việc xây dựng nền tảng cho các thương hiệu có mục tiêu phát triển trên các sàn TMĐT.<br><br>Mình và đội ngũ đã có cơ hội làm việc cùng nhau trong 1 số dự án và nhận thấy các bạn nhanh nhạy, luôn bắt nhịp xu thế thị trường nên khách hàng, đối tác an tâm và đồng phát triển.</p>
+            <div class="cs-quote-icon" style="text-align: right;">”</div>
+          </div>
+          
+          <div class="cs-visual">
+            <div class="cs-image-placeholder">
+              <img src="images/shondo_product.png" alt="Sản phẩm Shondo Vietnam">
+            </div>
+            
+            <div class="cs-badge cs-badge-top">
+              <div class="cs-badge-title">ĐÃ BÁN</div>
+              <div class="cs-badge-val">1000 +</div>
+              <div class="cs-badge-desc">ĐƠN HÀNG MỚI</div>
+            </div>
+            
+            <div class="cs-badge cs-badge-bottom">
+              <div class="cs-badge-title">TĂNG TRƯỞNG</div>
+              <div class="cs-badge-val">10,000%</div>
+              <div class="cs-badge-desc">DOANH THU</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer 2: Mỹ Phẩm -->
+        <div class="cs-box">
+          <div class="cs-content">
+            <div class="cs-info">
+              Khách hàng: <span>L'Oréal Paris</span><br>
+              Ngành hàng: <span>Mỹ phẩm</span>
+            </div>
+            
+            <div class="cs-quote-icon">“</div>
+            <p class="cs-text">Giải pháp livestream trọn gói của META ECOM đã giúp chúng tôi bùng nổ doanh số trong kỳ Mega Sale.<br><br>Chất lượng hình ảnh sắc nét chuẩn TVC và đội ngũ vận hành cực kỳ chuyên nghiệp, giúp tỷ lệ chuyển đổi tăng gấp 3 lần so với các phiên live thông thường.</p>
+            <div class="cs-quote-icon" style="text-align: right;">”</div>
+          </div>
+          
+          <div class="cs-visual">
+            <div class="cs-image-placeholder">
+              <img src="images/loreal_product.png" alt="Mỹ phẩm L'Oréal Paris">
+            </div>
+            
+            <div class="cs-badge cs-badge-top">
+              <div class="cs-badge-title">ĐÃ BÁN</div>
+              <div class="cs-badge-val">5000 +</div>
+              <div class="cs-badge-desc">ĐƠN HÀNG</div>
+            </div>
+            
+            <div class="cs-badge cs-badge-bottom">
+              <div class="cs-badge-title">ĐẠT TOP 1</div>
+              <div class="cs-badge-val">TIKTOK SHOP</div>
+              <div class="cs-badge-desc">NGÀNH HÀNG MỸ PHẨM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer 3: Gia dụng -->
+        <div class="cs-box">
+          <div class="cs-content">
+            <div class="cs-info">
+              Khách hàng: <span>Lock&Lock</span><br>
+              Ngành hàng: <span>Gia dụng</span>
+            </div>
+            
+            <div class="cs-quote-icon">“</div>
+            <p class="cs-text">Chúng tôi ấn tượng với sự tận tâm và am hiểu thuật toán nền tảng của đội ngũ META ECOM.<br><br>Phiên live kéo dài 12 tiếng liên tục nhưng không hề gặp bất kỳ sự cố kỹ thuật nào, lượng viewer duy trì ổn định và mang lại doanh thu kỷ lục cho thương hiệu.</p>
+            <div class="cs-quote-icon" style="text-align: right;">”</div>
+          </div>
+          
+          <div class="cs-visual">
+            <div class="cs-image-placeholder">
+              <img src="images/locknlock_product.png" alt="Gia dụng Lock&Lock">
+            </div>
+            
+            <div class="cs-badge cs-badge-top">
+              <div class="cs-badge-title">DOANH THU</div>
+              <div class="cs-badge-val">2 TỶ +</div>
+              <div class="cs-badge-desc">TRONG 12 GIỜ</div>
+            </div>
+            
+            <div class="cs-badge cs-badge-bottom">
+              <div class="cs-badge-title">LƯỢT XEM</div>
+              <div class="cs-badge-val">500K +</div>
+              <div class="cs-badge-desc">NGƯỜI TIẾP CẬN</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <button class="cs-nav-btn cs-nav-next" onclick="const c = document.querySelector('.cs-slider-container'); c.scrollBy({left: (c.offsetWidth + 40), behavior: 'smooth'})">❯</button>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / DỰ ÁN ĐÃ LÀM -->
+  <section class="section container" id="du-an">
+    <style>
+      .pf-header { width: 100%; margin-bottom: 48px; text-align: left; }
+      .pf-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--c-accent); margin-bottom: 16px; }
+      .pf-subtitle { color: var(--c-text-muted); font-size: 16px; }
+      
+      .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      
+      .pf-card { cursor: pointer; transition: transform 0.3s ease; }
+      .pf-card:hover { transform: translateY(-8px); }
+      
+      .pf-thumb-wrapper { position: relative; padding-top: 56.25%; border-radius: 20px; overflow: hidden; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+      .pf-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%); z-index: 1; transition: background 0.3s; }
+      .pf-card:hover .pf-thumb-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%); }
+      
+      .pf-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: rgba(247, 147, 31, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s; box-shadow: 0 8px 24px rgba(247, 147, 31, 0.4); }
+      .pf-play-btn::after { content: ''; width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent #fff; margin-left: 6px; }
+      .pf-card:hover .pf-play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--c-accent); }
+      
+      .pf-badge { position: absolute; bottom: 16px; left: 16px; z-index: 2; background: var(--c-accent); color: #000; padding: 4px 12px; border-radius: 6px; font-family: var(--font-display); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+      
+      .pf-title-text { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; margin-bottom: 8px; transition: color 0.3s; }
+      .pf-card:hover .pf-title-text { color: var(--c-accent); }
+      
+      .pf-desc-text { color: var(--c-text-muted); font-size: 14px; line-height: 1.6; }
+
+      @media (max-width: 992px) {
+        .pf-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        .pf-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+
+    <div class="pf-header">
+      <h2 class="pf-title">Các phiên live META ECOM đã làm</h2>
+      <p class="pf-subtitle">Khám phá các dự án livestream thực tế do đội ngũ chuyên gia META ECOM trực tiếp lên ý tưởng và vận hành.</p>
+    </div>
+
+    <div class="pf-grid">
+      <!-- Project 1 -->
+      <div class="pf-card">
+        <div class="pf-thumb-wrapper">
+          <div class="pf-thumb-overlay"></div>
+          <div class="pf-play-btn"></div>
+          <div class="pf-badge">THỜI TRANG</div>
+          <img src="images/project_fashion.png" alt="Livestream Mega Sale 11.11 - Shondo Vietnam" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 class="pf-title-text">Livestream Mega Sale 11.11 - Shondo Vietnam</h3>
+        <p class="pf-desc-text">Setup không gian studio 3 góc máy, thiết bị ánh sáng điện ảnh kết hợp mini game tương tác trực tiếp.</p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="pf-card">
+        <div class="pf-thumb-wrapper">
+          <div class="pf-thumb-overlay"></div>
+          <div class="pf-play-btn"></div>
+          <div class="pf-badge">MỸ PHẨM</div>
+          <img src="images/loreal_product.png" alt="Phiên Live Ra Mắt Sản Phẩm Mới - L'Oréal Paris" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 class="pf-title-text">Phiên Live Ra Mắt Sản Phẩm Mới - L'Oréal Paris</h3>
+        <p class="pf-desc-text">Tích hợp hiệu ứng phông xanh (Green Screen) realtime, thay đổi bối cảnh liên tục theo từng dòng sản phẩm.</p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="pf-card">
+        <div class="pf-thumb-wrapper">
+          <div class="pf-thumb-overlay"></div>
+          <div class="pf-play-btn"></div>
+          <div class="pf-badge">GIA DỤNG</div>
+          <img src="images/locknlock_product.png" alt="Livestream Quay Số Trúng Thưởng - Lock&Lock" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 class="pf-title-text">Livestream Quay Số Trúng Thưởng - Lock&Lock</h3>
+        <p class="pf-desc-text">Hệ thống livestream PC mạnh mẽ, đảm bảo đường truyền ổn định suốt 12 tiếng phát sóng liên tục.</p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="pf-card">
+        <div class="pf-thumb-wrapper">
+          <div class="pf-thumb-overlay"></div>
+          <div class="pf-play-btn"></div>
+          <div class="pf-badge">SỰ KIỆN</div>
+          <img src="images/studio_setup.png" alt="Livestream Talkshow Chuyên Gia Chăm Sóc Da" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 class="pf-title-text">Livestream Talkshow Chuyên Gia Chăm Sóc Da</h3>
+        <p class="pf-desc-text">Ghi hình On-site tại showroom với đội ngũ 2 quay phim, 1 đạo diễn hình ảnh và thu âm micro cài áo không dây.</p>
+      </div>
+      
+      <!-- Project 5 -->
+      <div class="pf-card">
+        <div class="pf-thumb-wrapper">
+          <div class="pf-thumb-overlay"></div>
+          <div class="pf-play-btn"></div>
+          <div class="pf-badge">CÔNG NGHỆ</div>
+          <img src="images/project_tech.png" alt="Livestream Unbox & Trải Nghiệm Laptop Gaming" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 class="pf-title-text">Livestream Unbox & Trải Nghiệm Laptop Gaming</h3>
+        <p class="pf-desc-text">Góc quay cận cảnh (Macro) chi tiết sắc nét, bàn trộn hiển thị chia màn hình PIP (Picture in Picture) chuyên nghiệp.</p>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="pf-card">
+        <div class="pf-thumb-wrapper">
+          <div class="pf-thumb-overlay"></div>
+          <div class="pf-play-btn"></div>
+          <div class="pf-badge">F&B</div>
+          <img src="images/shondo_product.png" alt="Livestream Khai Trương Chuỗi Cửa Hàng Đồ Uống" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 class="pf-title-text">Livestream Khai Trương Chuỗi Cửa Hàng Đồ Uống</h3>
+        <p class="pf-desc-text">Livestream di động sử dụng hệ thống Gimbal chống rung và bộ phát sóng 5G bonding siêu tốc độ.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT / TERMINAL -->
+  <section class="section container" id="lien-he">
+    <div class="contact-box">
+      <div class="contact-info">
+        <h2>Bắt đầu chiến dịch Live tiếp theo.</h2>
+        <p style="color: var(--c-text-muted); font-size: 18px; margin-bottom: 48px;">Đội ngũ chuyên gia từ META ECOM sẽ liên hệ lại với bạn trong vòng 30 phút làm việc.</p>
+        
+        <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--c-accent); margin-bottom: 8px; font-weight: 700;">Hotline Trực Tiếp 24/7</div>
+        <div style="font-family: var(--font-display); font-size: clamp(32px, 3vw, 40px); font-weight: 900;">092 999 66 99</div>
+      </div>
+      
+      <div class="contact-form">
+        <form onsubmit="event.preventDefault(); alert('Đã gửi yêu cầu tư vấn thành công!');">
+          <div class="form-group">
+            <label class="form-label">Họ và Tên</label>
+            <input type="text" class="form-input" required placeholder="Nhập tên của bạn">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Số Điện Thoại / Zalo</label>
+            <input type="tel" class="form-input" required placeholder="092...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Gói Dịch Vụ Quan Tâm</label>
+            <select class="form-input" style="appearance: none;">
+              <option value="pro">Gói Máy Quay Pro (Khuyên dùng)</option>
+              <option value="phone">Gói Điện Thoại</option>
+              <option value="e2e">Gói E2E (Live + Ads + Video)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Ghi Chú</label>
+            <textarea class="form-input" rows="3" placeholder="Số giờ live/tháng dự kiến, ngành hàng..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-pill btn-pill-primary btn-full" style="border: none; cursor: pointer;">Gửi Yêu Cầu Tư Vấn →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div style="font-family: var(--font-display); font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;">META ECOM</div>
+    <p>Giải pháp vận hành Livestream E-commerce toàn diện.</p>
+    <p style="margin-top: 12px; font-size: 13px;">Hotline 24/7: <a href="tel:0929996699" style="color: var(--c-accent); font-weight: 700;">092 999 66 99</a> | Email: <a href="mailto:contact@metaecom.vn" style="color: #fff;">contact@metaecom.vn</a></p>
+    <p style="margin-top: 24px; opacity: 0.5;">© 2026 META ECOM. All rights reserved.</p>
+  </footer>
+
+  <!-- FLOATING CSKH WIDGET -->
+  <div class="floating-widget">
+    <a href="tel:0929996699" class="float-btn float-phone" title="Gọi Hotline 24/7">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+    <a href="https://zalo.me/0929996699" target="_blank" class="float-btn float-zalo" title="Chat Zalo Tư Vấn">
+      Zalo
+    </a>
+  </div>
+
+</body>
+</html>
