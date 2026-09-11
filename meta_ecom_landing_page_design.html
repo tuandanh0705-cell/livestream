@@ -1128,32 +1128,35 @@
       </div>
       
       <div class="contact-form">
-        <form onsubmit="event.preventDefault(); alert('Đã gửi yêu cầu tư vấn thành công!');">
+        <form id="lead-form" onsubmit="handleLeadSubmit(event)">
           <div class="form-group">
-            <label class="form-label">Họ và Tên</label>
-            <input type="text" class="form-input" required placeholder="Nhập tên của bạn">
+            <label class="form-label">Họ và Tên <span style="color: #ef4444;">*</span></label>
+            <input type="text" id="lead-name" class="form-input" required placeholder="Nhập tên của bạn (Ví dụ: Nguyễn Văn A)">
           </div>
           
           <div class="form-group">
-            <label class="form-label">Số Điện Thoại / Zalo</label>
-            <input type="tel" class="form-input" required placeholder="092...">
+            <label class="form-label">Số Điện Thoại / Zalo <span style="color: #ef4444;">*</span></label>
+            <input type="tel" id="lead-phone" class="form-input" required placeholder="0901234567" oninput="validatePhoneLive(this)">
+            <div id="phone-error" style="display: none; color: #ef4444; font-size: 13px; margin-top: 6px; font-weight: 500;">⚠️ Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 chữ số)</div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Gói Dịch Vụ Quan Tâm</label>
-            <select class="form-input" style="appearance: none;">
-              <option value="pro">Gói Máy Quay Pro (Khuyên dùng)</option>
-              <option value="phone">Gói Điện Thoại</option>
-              <option value="e2e">Gói E2E (Live + Ads + Video)</option>
+            <select id="lead-package" class="form-input" style="appearance: none; cursor: pointer;">
+              <option value="Gói Máy Quay Pro (Khuyên dùng)">Gói Máy Quay Pro (Khuyên dùng)</option>
+              <option value="Gói Điện Thoại">Gói Điện Thoại</option>
+              <option value="Gói E2E (Live + Ads + Video)">Gói E2E (Live + Ads + Video)</option>
             </select>
           </div>
 
           <div class="form-group">
             <label class="form-label">Ghi Chú</label>
-            <textarea class="form-input" rows="3" placeholder="Số giờ live/tháng dự kiến, ngành hàng..."></textarea>
+            <textarea id="lead-note" class="form-input" rows="3" placeholder="Số giờ live/tháng dự kiến, ngành hàng..."></textarea>
           </div>
 
-          <button type="submit" class="btn-pill btn-pill-primary btn-full" style="border: none; cursor: pointer;">Gửi Yêu Cầu Tư Vấn →</button>
+          <button type="submit" id="btn-submit-lead" class="btn-pill btn-pill-primary btn-full" style="border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>Gửi Yêu Cầu Tư Vấn →</span>
+          </button>
         </form>
       </div>
     </div>
@@ -1187,7 +1190,117 @@
     </div>
   </div>
 
+  <!-- THANK YOU / SUCCESS MODAL (GLASSMORPHISM) -->
+  <div id="success-modal" style="display: none; position: fixed; inset: 0; z-index: 99999; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); align-items: center; justify-content: center; padding: 24px;">
+    <style>
+      @keyframes pulse-green-check {
+        0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+        70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      }
+    </style>
+    <div style="position: relative; width: 100%; max-width: 520px; background: rgba(18, 18, 18, 0.95); border-radius: 32px; padding: 48px 36px; text-align: center; border: 1px solid rgba(245, 176, 21, 0.35); box-shadow: 0 30px 70px rgba(0,0,0,0.95), 0 0 40px rgba(245, 176, 21, 0.15);">
+      <button onclick="closeSuccessModal()" style="position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.background='var(--c-accent)'; this.style.color='#000';" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.color='#fff';">✕</button>
+
+      <!-- ANIMATED CHECKMARK ICON -->
+      <div style="width: 80px; height: 80px; margin: 0 auto 28px; background: rgba(34, 197, 94, 0.12); border: 2px solid #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(34, 197, 94, 0.4); animation: pulse-green-check 2s infinite;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 12px; letter-spacing: -0.5px;">Gửi Yêu Cầu Thành Công!</h3>
+      
+      <p style="font-size: 16px; color: var(--c-text-muted); line-height: 1.6; margin-bottom: 24px;">
+        Cảm ơn <strong id="modal-user-name" style="color: var(--c-accent);">Anh/Chị</strong> đã lựa chọn giải pháp Livestream từ <strong>META ECOM</strong>.
+      </p>
+
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 20px; margin-bottom: 32px; text-align: left; font-size: 14px; color: var(--c-text-muted); line-height: 1.8;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span>Số điện thoại nhận tư vấn:</span>
+          <strong id="modal-user-phone" style="color: #fff;">090...</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span>Gói dịch vụ đã chọn:</span>
+          <strong id="modal-user-package" style="color: var(--c-accent);">Gói Máy Quay Pro</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span>SLA Thời gian phản hồi:</span>
+          <strong style="color: #22c55e;">⚡ Trong vòng 30 phút</strong>
+        </div>
+      </div>
+
+      <button onclick="closeSuccessModal()" class="btn-pill btn-pill-primary btn-full" style="border: none; cursor: pointer; font-size: 16px; box-shadow: 0 10px 25px rgba(245, 176, 21, 0.3);">Đã Hiểu & Đóng Cửa Sổ →</button>
+    </div>
+  </div>
+
   <script>
+    // FORM VALIDATION & SUCCESS MODAL HANDLER
+    function validatePhoneLive(input) {
+      const errorDiv = document.getElementById('phone-error');
+      const val = input.value.trim();
+      const phoneRegex = /^0[0-9]{9}$/;
+      if (val.length > 0 && !phoneRegex.test(val)) {
+        errorDiv.style.display = 'block';
+        input.style.borderColor = '#ef4444';
+        return false;
+      } else {
+        errorDiv.style.display = 'none';
+        input.style.borderColor = 'var(--c-border)';
+        return true;
+      }
+    }
+
+    function handleLeadSubmit(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById('lead-name');
+      const phoneInput = document.getElementById('lead-phone');
+      const packageInput = document.getElementById('lead-package');
+      const noteInput = document.getElementById('lead-note');
+      const btnSubmit = document.getElementById('btn-submit-lead');
+
+      const name = nameInput.value.trim();
+      const phone = phoneInput.value.trim();
+      const pkg = packageInput.value;
+
+      const phoneRegex = /^0[0-9]{9}$/;
+      if (!phoneRegex.test(phone)) {
+        document.getElementById('phone-error').style.display = 'block';
+        phoneInput.style.borderColor = '#ef4444';
+        phoneInput.focus();
+        return;
+      }
+
+      // Button loading effect
+      btnSubmit.disabled = true;
+      btnSubmit.style.opacity = '0.7';
+      btnSubmit.innerHTML = '<span>⏳ Đang Gửi Yêu Cầu...</span>';
+
+      setTimeout(() => {
+        // Set Modal User Data
+        document.getElementById('modal-user-name').textContent = name;
+        document.getElementById('modal-user-phone').textContent = phone;
+        document.getElementById('modal-user-package').textContent = pkg;
+
+        // Display Modal
+        const modal = document.getElementById('success-modal');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+
+        // Reset Form
+        document.getElementById('lead-form').reset();
+        btnSubmit.disabled = false;
+        btnSubmit.style.opacity = '1';
+        btnSubmit.innerHTML = '<span>Gửi Yêu Cầu Tư Vấn →</span>';
+      }, 500);
+    }
+
+    function closeSuccessModal() {
+      const modal = document.getElementById('success-modal');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
     function openVideoModal(videoUrl) {
       const modal = document.getElementById('video-modal');
       const iframe = document.getElementById('video-iframe');
@@ -1216,12 +1329,26 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('video-modal');
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeVideoModal();
-      });
+      const videoModal = document.getElementById('video-modal');
+      const successModal = document.getElementById('success-modal');
+
+      if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+          if (e.target === videoModal) closeVideoModal();
+        });
+      }
+
+      if (successModal) {
+        successModal.addEventListener('click', (e) => {
+          if (e.target === successModal) closeSuccessModal();
+        });
+      }
+
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'flex') closeVideoModal();
+        if (e.key === 'Escape') {
+          if (videoModal && videoModal.style.display === 'flex') closeVideoModal();
+          if (successModal && successModal.style.display === 'flex') closeSuccessModal();
+        }
       });
     });
   </script>
