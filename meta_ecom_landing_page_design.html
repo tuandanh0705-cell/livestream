@@ -569,18 +569,47 @@
       color: var(--c-text-muted);
     }
 
-    /* --- RESPONSIVE --- */
+    /* --- RESPONSIVE OPTIMIZATIONS (TABLET & MOBILE) --- */
     @media (max-width: 992px) {
       .header { padding: 14px 20px; }
       .nav-btn { padding: 10px 18px; font-size: 12px; }
-      .hero-h1-bottom { font-size: 8vw; }
+      .hero { padding-top: 100px; }
+      .hero-container { padding: 48px 24px; border-radius: 28px; }
+      .hero-h1-top { font-size: clamp(24px, 5vw, 36px); }
+      .hero-h1-bottom { font-size: clamp(40px, 9vw, 64px); }
+      .hero-lede { font-size: 16px; margin-bottom: 28px; }
       .bento-grid, .service-row, .pricing-grid, .contact-box { grid-template-columns: 1fr; }
       .bento-large { grid-column: 1; }
       .service-row { gap: 16px; padding: 24px; }
       .srv-num { font-size: 20px; }
       .srv-title { font-size: 22px; }
       .nav-links { display: none; }
-      .contact-box { padding: 32px; gap: 32px; }
+      .contact-box { padding: 32px 24px; gap: 32px; border-radius: 28px; }
+      .price-card { padding: 32px 24px; border-radius: 24px; }
+      .section { padding: 60px 0; }
+    }
+
+    @media (max-width: 640px) {
+      .header { padding: 12px 16px; }
+      .logo { font-size: 16px; gap: 8px; }
+      .logo-icon { width: 26px; height: 26px; }
+      .nav-btn { padding: 8px 14px; font-size: 11px; }
+      
+      .hero-container { padding: 36px 16px; border-radius: 24px; }
+      .hero-eyebrow { font-size: 12px; letter-spacing: 2px; margin-bottom: 16px; }
+      .hero-buttons { flex-direction: column; width: 100%; gap: 12px; }
+      .btn-pill { width: 100%; text-align: center; padding: 14px 20px; font-size: 15px; }
+      
+      .container { padding: 0 16px; }
+      .section { padding: 48px 0; }
+      
+      .contact-info h2 { font-size: 28px; }
+      .contact-box { padding: 24px 16px; }
+      .price-val { font-size: 38px; }
+      
+      .floating-widget { bottom: 16px; right: 16px; gap: 8px; }
+      .float-btn { width: 46px; height: 46px; font-size: 11px; }
+      .mobile-swipe-hint { display: block !important; }
     }
   </style>
 </head>
@@ -658,6 +687,7 @@
       <p style="color: var(--c-text-muted); font-size: 17px; max-width: 900px; line-height: 1.6;">Cung cấp không gian studio và host live kinh nghiệm phù hợp với những doanh nghiệp muốn tổ chức các buổi livestream tăng tương tác với khách hàng, nâng cao hình ảnh thương hiệu và tối ưu kết quả kinh doanh.</p>
     </div>
 
+    <div class="mobile-swipe-hint" style="display: none; font-size: 13px; color: var(--c-accent); margin-bottom: 12px; text-align: right; font-weight: 600;">👉 Vuốt sang trái để xem chi tiết 2 gói ➔</div>
     <div style="background: rgba(15, 15, 15, 0.6); border: 1px solid var(--c-border); border-radius: 24px; overflow: hidden; backdrop-filter: blur(12px); overflow-x: auto;">
       <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 800px;">
         <thead>
