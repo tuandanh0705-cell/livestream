@@ -110,16 +110,22 @@
       color: inherit;
     }
 
-    /* --- TOP NAV --- */
+    /* --- TOP NAV (FIXED GLASSMORPHISM) --- */
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 24px 48px;
-      position: absolute;
+      padding: 16px 48px;
+      position: fixed;
       width: 100%;
       top: 0;
-      z-index: 100;
+      left: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
     }
 
     .logo {
@@ -565,6 +571,8 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 992px) {
+      .header { padding: 14px 20px; }
+      .nav-btn { padding: 10px 18px; font-size: 12px; }
       .hero-h1-bottom { font-size: 8vw; }
       .bento-grid, .service-row, .pricing-grid, .contact-box { grid-template-columns: 1fr; }
       .bento-large { grid-column: 1; }
@@ -612,7 +620,7 @@
 
   <!-- INTRO LEAD-IN & ANH 1 SECTION -->
   <section class="container" style="padding-top: 16px; padding-bottom: 20px;">
-    <div style="width: 100%; text-align: justify; font-size: 17px; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 20px;">
+    <div style="width: 100%; text-align: left; font-size: 17px; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 20px;">
       Trong kỷ nguyên thương mại điện tử (E-commerce), <strong>dịch vụ sản xuất Livestream bán hàng trọn gói</strong> là chiến lược ưu tiên hàng đầu giúp các doanh nghiệp bứt phá doanh số. Việc đầu tư vào một giải pháp Livestream chuyên nghiệp, chuẩn hình ảnh 4K chính là “chìa khóa vàng” để nhãn hàng tạo nên các phiên <strong>Mega Live bùng nổ đơn hàng</strong> trên <span style="white-space: nowrap;">TikTok Shop</span>, <span style="white-space: nowrap;">Shopee Live</span> và Facebook. Hãy cùng <strong>META ECOM</strong> khám phá giải pháp tối ưu cho thương hiệu của bạn ngay dưới đây!
     </div>
 
@@ -711,10 +719,10 @@
   <section class="section container" id="quy-trinh">
     <div style="width: 100%; margin-bottom: 40px; text-align: left;">
       <h2 style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); color: var(--c-accent); font-weight: 700; margin-bottom: 16px;">Quy Trình Triển Khai Phiên Livestream Bán Hàng Chuyên Nghiệp</h2>
-      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8; text-align: justify;">
+      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8; text-align: left;">
         Có thể bạn chưa biết, sự khác biệt lớn nhất giữa một phiên livestream tự phát và một chiến dịch được dựng xây chuyên nghiệp như <strong>dịch vụ livestream bán hàng META ECOM</strong> nằm ở quy trình triển khai, kiểm soát rủi ro, tối ưu hóa ngân sách cùng một EKIP có năng lực thực thi nghiêm túc.
       </p>
-      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8; margin-top: 16px; text-align: justify;">
+      <p style="color: var(--c-text-muted); font-size: 17px; line-height: 1.8; margin-top: 16px; text-align: left;">
         Tại <strong>META ECOM</strong>, chúng tôi áp dụng quy trình chuẩn hóa với 5 bước nghiêm ngặt, đảm bảo thời gian của doanh nghiệp đầu tư cho phiên live thành giá trị thương hiệu uy tín và chuyển đổi thực tế, cụ thể như sau:
       </p>
     </div>
@@ -725,10 +733,10 @@
       <div style="width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
         <img src="images/stage1.png?v=3" alt="Giai đoạn 1: Tiếp nhận & Tư vấn META ECOM" style="width: 100%; height: auto; display: block;">
       </div>
-      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify; margin-bottom: 12px;">
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: left; margin-bottom: 12px;">
         Ở giai đoạn đầu tiên, <strong>META ECOM</strong> sẽ tiếp nhận nhu cầu và ngồi lại với khách hàng để làm rõ mục tiêu chiến lược của dự án, phân tích sâu bài toán chuyển đổi kinh doanh cho từng ngành hàng cụ thể:
       </p>
-      <ul style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; padding-left: 24px; text-align: justify;">
+      <ul style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; padding-left: 24px; text-align: left;">
         <li style="margin-bottom: 8px;"><strong>Phân tích ngành hàng:</strong> Sản phẩm của bạn dù là thời trang, mỹ phẩm, gia dụng hay công nghệ... META ECOM đều thiết kế hình ảnh cao cấp, tương thích hiển thị đa nền tảng.</li>
         <li><strong>Định vị chân dung khách hàng:</strong> Xác định cụ thể tệp người xem live để lựa chọn <strong>"Khung giờ Vàng"</strong>, phong cách ngôn ngữ, nhịp độ và kịch bản chốt đơn phù hợp.</li>
       </ul>
@@ -740,10 +748,10 @@
       <div style="width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
         <img src="images/stage2.png?v=3" alt="Giai đoạn 2: Khảo sát & Lên kịch bản" style="width: 100%; height: auto; display: block;">
       </div>
-      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify; margin-bottom: 12px;">
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: left; margin-bottom: 12px;">
         Tiếp đến, đội ngũ chuyên gia sẽ lên phương án không gian Studio phù hợp với bộ nhận diện thương hiệu, tạo cảm giác uy tín ngay từ cái nhìn đầu tiên.
       </p>
-      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify;">
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: left;">
         Việc tạo kịch bản điều hướng bán hàng rõ ràng giúp MC đi đúng trọng tâm chiến dịch, tạo các giai đoạn kích thích mua hàng qua <strong>Deal độc quyền, voucher đếm ngược và Mini Game</strong> trao quà hấp dẫn giữ chân người xem.
       </p>
     </div>
@@ -754,10 +762,10 @@
       <div style="width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
         <img src="images/stage3.png?v=3" alt="Giai đoạn 3: Setup & Test kỹ thuật" style="width: 100%; height: auto; display: block;">
       </div>
-      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify; margin-bottom: 12px;">
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: left; margin-bottom: 12px;">
         Rủi ro lớn nhất của Livestream là mất mạng, mờ hình hay mất tiếng. Tại <strong>META ECOM</strong>, chúng tôi triệt tiêu 100% rủi ro này bằng quy trình kỹ thuật chuẩn đài truyền hình:
       </p>
-      <ul style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; padding-left: 24px; text-align: justify;">
+      <ul style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; padding-left: 24px; text-align: left;">
         <li style="margin-bottom: 8px;"><strong>Hạ tầng mạng chuyên dụng:</strong> Sử dụng đường truyền mạng tốc độ cao (băng thông rộng dedicated) cam kết <strong>không giật lag, không sụt Bitrate</strong>.</li>
         <li style="margin-bottom: 8px;"><strong>Hệ thống phần cứng 4K:</strong> Bố trí đa máy quay Sony 4K, hệ thống đèn studio chuẩn CRI 95+ và bàn trộn hình chuyển cảnh mượt mà.</li>
         <li><strong>Tổng duyệt nghiêm ngặt:</strong> EKIP kỹ thuật âm thanh, ánh sáng, banner ghim đơn và MC thực hiện tổng duyệt test thiết bị trước khi bấm máy 1–2 tiếng.</li>
@@ -770,7 +778,7 @@
       <div style="width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
         <img src="images/stage4.png?v=3" alt="Giai đoạn 4: Bấm máy phát sóng chính thức" style="width: 100%; height: auto; display: block;">
       </div>
-      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify;">
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: left;">
         Chính thức phát sóng phiên live đa nền tảng (TikTok Shop, Shopee Live, Facebook). Đội ngũ EKIP vận hành trọn gói 4 vai trò (Host live + Cameraman + Kỹ thuật bàn trộn + Trợ live ghim đơn) giữ nhịp phiên live luôn năng lượng và tăng trưởng tỷ lệ chốt đơn liên tục.
       </p>
     </div>
@@ -781,7 +789,7 @@
       <div style="width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--c-border); box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-bottom: 20px; position: relative;">
         <img src="images/stage5.png?v=3" alt="Giai đoạn 5: Nghiệm thu & Bàn giao File 4K" style="width: 100%; height: auto; display: block;">
       </div>
-      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: justify;">
+      <p style="color: var(--c-text-muted); font-size: 16px; line-height: 1.8; text-align: left;">
         Sau khi kết thúc phiên live, META ECOM xuất báo cáo số liệu hiệu suất và <strong>bàn giao 100% File Video gốc 4K</strong> để thương hiệu tái sử dụng cắt dựng clip ngắn (Reels/TikTok/Shorts) chạy quảng cáo Video Ads, tối ưu ROI tối đa.
       </p>
     </div>
