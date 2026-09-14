@@ -1041,117 +1041,347 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO / DỰ ÁN ĐÃ LÀM -->
+  <!-- PORTFOLIO / DỰ ÁN DẠNG KHUNG DỌC (VERTICAL 9:16 CARDS) -->
   <section class="section container" id="du-an">
     <style>
       .pf-header { width: 100%; margin-bottom: 48px; text-align: left; }
       .pf-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--c-accent); margin-bottom: 16px; }
       .pf-subtitle { color: var(--c-text-muted); font-size: 16px; }
       
-      .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-      
-      .pf-card { cursor: pointer; transition: transform 0.3s ease; }
-      .pf-card:hover { transform: translateY(-8px); }
-      
-      .pf-thumb-wrapper { position: relative; padding-top: 56.25%; border-radius: 20px; overflow: hidden; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-      .pf-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%); z-index: 1; transition: background 0.3s; }
-      .pf-card:hover .pf-thumb-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%); }
-      
-      .pf-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: rgba(247, 147, 31, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s; box-shadow: 0 8px 24px rgba(247, 147, 31, 0.4); }
-      .pf-play-btn::after { content: ''; width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent #fff; margin-left: 6px; }
-      .pf-card:hover .pf-play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--c-accent); }
-      
-      .pf-badge { position: absolute; bottom: 16px; left: 16px; z-index: 2; background: var(--c-accent); color: #000; padding: 4px 12px; border-radius: 6px; font-family: var(--font-display); font-size: 12px; font-weight: 800; text-transform: uppercase; }
-      
-      .pf-title-text { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; margin-bottom: 8px; transition: color 0.3s; }
-      .pf-card:hover .pf-title-text { color: var(--c-accent); }
-      
-      .pf-desc-text { color: var(--c-text-muted); font-size: 14px; line-height: 1.6; }
+      .vertical-pf-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .vcard {
+        background: rgba(18, 18, 18, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 28px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(12px);
+        transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        cursor: pointer;
+      }
+
+      .vcard:hover {
+        transform: translateY(-8px);
+        border-color: rgba(245, 176, 21, 0.5);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 176, 21, 0.15);
+      }
+
+      .vcard-media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .vcard-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .vcard:hover .vcard-media img {
+        transform: scale(1.04);
+      }
+
+      .vcard-top-bar {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+      }
+
+      .vcard-user {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        padding: 4px 10px 4px 6px;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .vcard-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--c-accent);
+        color: #000;
+        font-weight: 800;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .vcard-username {
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .vcard-share {
+        font-size: 11px;
+        font-weight: 600;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        padding: 4px 10px;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .vcard-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.45);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+        transition: all 0.3s ease;
+      }
+
+      .vcard-play-btn::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 16px;
+        border-color: transparent transparent transparent #ffffff;
+        margin-left: 4px;
+      }
+
+      .vcard:hover .vcard-play-btn {
+        transform: translate(-50%, -50%) scale(1.1);
+        background: var(--c-accent);
+        border-color: var(--c-accent);
+      }
+
+      .vcard:hover .vcard-play-btn::after {
+        border-color: transparent transparent transparent #000000;
+      }
+
+      .vcard-info {
+        padding: 20px 8px 8px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vcard-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(245, 176, 21, 0.12);
+        border: 1px solid rgba(245, 176, 21, 0.3);
+        color: var(--c-accent);
+        font-family: var(--font-display);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 100px;
+        margin-bottom: 14px;
+      }
+
+      .vcard-title {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 800;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        line-height: 1.25;
+      }
+
+      .vcard-desc {
+        font-size: 14px;
+        color: var(--c-text-muted);
+        line-height: 1.6;
+      }
 
       @media (max-width: 992px) {
-        .pf-grid { grid-template-columns: repeat(2, 1fr); }
+        .vertical-pf-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
       }
       @media (max-width: 640px) {
-        .pf-grid { grid-template-columns: 1fr; }
+        .vertical-pf-grid { grid-template-columns: 1fr; gap: 24px; }
       }
     </style>
 
     <div class="pf-header">
-      <h2 class="pf-title">Các phiên live META ECOM đã làm</h2>
-      <p class="pf-subtitle">Khám phá các dự án livestream thực tế do đội ngũ chuyên gia META ECOM trực tiếp lên ý tưởng và vận hành.</p>
+      <h2 class="pf-title">Các phiên live & Khóa học thực tế</h2>
+      <p class="pf-subtitle">Khám phá các chiến dịch livestream bán hàng & câu chuyện học viên bùng nổ doanh số do META ECOM vận hành.</p>
     </div>
 
-    <div class="pf-grid">
-      <!-- Project 1 -->
-      <div class="pf-card" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4')">
-        <div class="pf-thumb-wrapper">
-          <div class="pf-thumb-overlay"></div>
-          <div class="pf-play-btn"></div>
-          <div class="pf-badge">THỜI TRANG</div>
-          <img src="images/project_fashion.png" alt="Livestream Mega Sale 11.11 - Shondo Vietnam" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+    <div class="vertical-pf-grid">
+      <!-- Card 1: MẠNH VIBE -->
+      <div class="vcard" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4')">
+        <div class="vcard-media">
+          <div class="vcard-top-bar">
+            <div class="vcard-user">
+              <div class="vcard-avatar">☀️</div>
+              <div class="vcard-username">XÂY NHÂN HI...</div>
+            </div>
+            <div class="vcard-share">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              Chia sẻ
+            </div>
+          </div>
+          <div class="vcard-play-btn"></div>
+          <img src="images/studio_setup.jpeg" alt="Mạnh Vibe">
         </div>
-        <h3 class="pf-title-text">Livestream Mega Sale 11.11 - Shondo Vietnam</h3>
-        <p class="pf-desc-text">Setup không gian studio 3 góc máy, thiết bị ánh sáng điện ảnh kết hợp mini game tương tác trực tiếp.</p>
+        <div class="vcard-info">
+          <div class="vcard-pill">👥 CÂU CHUYỆN HỌC VIÊN</div>
+          <h3 class="vcard-title">MẠNH VIBE</h3>
+          <p class="vcard-desc">Ứng dụng AI tạo ra các hệ thống bán hàng và funnel, tăng trưởng lên tới 4.000 học viên.</p>
+        </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="pf-card" onclick="openVideoModal('https://www.youtube.com/embed/L_LUpnjgPso')">
-        <div class="pf-thumb-wrapper">
-          <div class="pf-thumb-overlay"></div>
-          <div class="pf-play-btn"></div>
-          <div class="pf-badge">MỸ PHẨM</div>
-          <img src="images/loreal_product.png" alt="Phiên Live Ra Mắt Sản Phẩm Mới - L'Oréal Paris" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+      <!-- Card 2: HIVI HIẾU NGUYỄN -->
+      <div class="vcard" onclick="openVideoModal('https://www.youtube.com/embed/L_LUpnjgPso')">
+        <div class="vcard-media">
+          <div class="vcard-top-bar">
+            <div class="vcard-user">
+              <div class="vcard-avatar">HV</div>
+              <div class="vcard-username">HIVI HIẾU</div>
+            </div>
+            <div class="vcard-share">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              Chia sẻ
+            </div>
+          </div>
+          <div class="vcard-play-btn"></div>
+          <img src="images/project_fashion.png" alt="Hivi Hiếu Nguyễn">
         </div>
-        <h3 class="pf-title-text">Phiên Live Ra Mắt Sản Phẩm Mới - L'Oréal Paris</h3>
-        <p class="pf-desc-text">Tích hợp hiệu ứng phông xanh (Green Screen) realtime, thay đổi bối cảnh liên tục theo từng dòng sản phẩm.</p>
+        <div class="vcard-info">
+          <div class="vcard-pill">👥 CÂU CHUYỆN HỌC VIÊN</div>
+          <h3 class="vcard-title">HIVI HIẾU NGUYỄN</h3>
+          <p class="vcard-desc">Từ 0 follower đến 200 học viên với khóa AI Chuyên Gia.</p>
+        </div>
       </div>
 
-      <!-- Project 3 -->
-      <div class="pf-card" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4')">
-        <div class="pf-thumb-wrapper">
-          <div class="pf-thumb-overlay"></div>
-          <div class="pf-play-btn"></div>
-          <div class="pf-badge">GIA DỤNG</div>
-          <img src="images/locknlock_product.png" alt="Livestream Quay Số Trúng Thưởng - Lock&Lock" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+      <!-- Card 3: PHƯƠNG NGUYỄN ENGLISH -->
+      <div class="vcard" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4')">
+        <div class="vcard-media">
+          <div class="vcard-top-bar">
+            <div class="vcard-user">
+              <div class="vcard-avatar">PN</div>
+              <div class="vcard-username">TOP EXPERT</div>
+            </div>
+            <div class="vcard-share">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              Chia sẻ
+            </div>
+          </div>
+          <div class="vcard-play-btn"></div>
+          <img src="images/project_tech.png" alt="Phương Nguyễn English">
         </div>
-        <h3 class="pf-title-text">Livestream Quay Số Trúng Thưởng - Lock&Lock</h3>
-        <p class="pf-desc-text">Hệ thống livestream PC mạnh mẽ, đảm bảo đường truyền ổn định suốt 12 tiếng phát sóng liên tục.</p>
+        <div class="vcard-info">
+          <div class="vcard-pill">👥 CÂU CHUYỆN HỌC VIÊN</div>
+          <h3 class="vcard-title">PHƯƠNG NGUYỄN ENGLISH</h3>
+          <p class="vcard-desc">Từ 0 follower lên 50.000 follower và đạt 200 học viên trong 30 ngày cho khóa tiếng Anh.</p>
+        </div>
       </div>
 
-      <!-- Project 4 -->
-      <div class="pf-card" onclick="openVideoModal('https://www.youtube.com/embed/L_LUpnjgPso')">
-        <div class="pf-thumb-wrapper">
-          <div class="pf-thumb-overlay"></div>
-          <div class="pf-play-btn"></div>
-          <div class="pf-badge">SỰ KIỆN</div>
-          <img src="images/studio_setup.jpeg" alt="Livestream Talkshow Chuyên Gia Chăm Sóc Da" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+      <!-- Card 4: SHONDO VIETNAM -->
+      <div class="vcard" onclick="openVideoModal('https://www.youtube.com/embed/L_LUpnjgPso')">
+        <div class="vcard-media">
+          <div class="vcard-top-bar">
+            <div class="vcard-user">
+              <div class="vcard-avatar">SD</div>
+              <div class="vcard-username">SHONDO LIVE</div>
+            </div>
+            <div class="vcard-share">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              Chia sẻ
+            </div>
+          </div>
+          <div class="vcard-play-btn"></div>
+          <img src="images/shondo_product.png" alt="Shondo Vietnam">
         </div>
-        <h3 class="pf-title-text">Livestream Talkshow Chuyên Gia Chăm Sóc Da</h3>
-        <p class="pf-desc-text">Ghi hình On-site tại showroom với đội ngũ 2 quay phim, 1 đạo diễn hình ảnh và thu âm micro cài áo không dây.</p>
-      </div>
-      
-      <!-- Project 5 -->
-      <div class="pf-card" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4')">
-        <div class="pf-thumb-wrapper">
-          <div class="pf-thumb-overlay"></div>
-          <div class="pf-play-btn"></div>
-          <div class="pf-badge">CÔNG NGHỆ</div>
-          <img src="images/project_tech.png" alt="Livestream Unbox & Trải Nghiệm Laptop Gaming" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div class="vcard-info">
+          <div class="vcard-pill">👥 PHIÊN LIVE NỔ ĐƠN</div>
+          <h3 class="vcard-title">SHONDO VIETNAM</h3>
+          <p class="vcard-desc">Livestream Mega Sale 11.11 - Tăng trưởng 10.000% doanh thu & 1.000+ đơn hàng mới.</p>
         </div>
-        <h3 class="pf-title-text">Livestream Unbox & Trải Nghiệm Laptop Gaming</h3>
-        <p class="pf-desc-text">Góc quay cận cảnh (Macro) chi tiết sắc nét, bàn trộn hiển thị chia màn hình PIP (Picture in Picture) chuyên nghiệp.</p>
       </div>
 
-      <!-- Project 6 -->
-      <div class="pf-card" onclick="openVideoModal('https://www.youtube.com/embed/L_LUpnjgPso')">
-        <div class="pf-thumb-wrapper">
-          <div class="pf-thumb-overlay"></div>
-          <div class="pf-play-btn"></div>
-          <div class="pf-badge">F&B</div>
-          <img src="images/shondo_product.png" alt="Livestream Khai Trương Chuỗi Cửa Hàng Đồ Uống" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+      <!-- Card 5: L'ORÉAL PARIS -->
+      <div class="vcard" onclick="openVideoModal('https://www.youtube.com/embed/ScMzIvxBSi4')">
+        <div class="vcard-media">
+          <div class="vcard-top-bar">
+            <div class="vcard-user">
+              <div class="vcard-avatar">LO</div>
+              <div class="vcard-username">L'ORÉAL PARIS</div>
+            </div>
+            <div class="vcard-share">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              Chia sẻ
+            </div>
+          </div>
+          <div class="vcard-play-btn"></div>
+          <img src="images/loreal_product.png" alt="L'Oréal Paris">
         </div>
-        <h3 class="pf-title-text">Livestream Khai Trương Chuỗi Cửa Hàng Đồ Uống</h3>
-        <p class="pf-desc-text">Livestream di động sử dụng hệ thống Gimbal chống rung và bộ phát sóng 5G bonding siêu tốc độ.</p>
+        <div class="vcard-info">
+          <div class="vcard-pill">👥 PHIÊN LIVE NỔ ĐƠN</div>
+          <h3 class="vcard-title">L'ORÉAL PARIS</h3>
+          <p class="vcard-desc">Phiên Live Ra Mắt Sản Phẩm Mới - Đạt Top 1 TikTok Shop ngành mỹ phẩm.</p>
+        </div>
+      </div>
+
+      <!-- Card 6: LOCK&LOCK -->
+      <div class="vcard" onclick="openVideoModal('https://www.youtube.com/embed/L_LUpnjgPso')">
+        <div class="vcard-media">
+          <div class="vcard-top-bar">
+            <div class="vcard-user">
+              <div class="vcard-avatar">LL</div>
+              <div class="vcard-username">LOCK&LOCK</div>
+            </div>
+            <div class="vcard-share">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              Chia sẻ
+            </div>
+          </div>
+          <div class="vcard-play-btn"></div>
+          <img src="images/locknlock_product.png" alt="Lock&Lock">
+        </div>
+        <div class="vcard-info">
+          <div class="vcard-pill">👥 PHIÊN LIVE NỔ ĐƠN</div>
+          <h3 class="vcard-title">LOCK&LOCK</h3>
+          <p class="vcard-desc">Livestream 12 tiếng liên tục - Đạt 2 Tỷ+ doanh thu & 500K+ người tiếp cận.</p>
+        </div>
       </div>
     </div>
   </section>
